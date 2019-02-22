@@ -2,6 +2,8 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MediatRExperiments", "MediatRExperiments\MediatRExperiments.csproj", "{55B33880-09D3-4614-9646-C06CE8F0FA2A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Tests\Tests.csproj", "{E0581A8D-3AD0-44A2-9A97-560022B6B5CC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +14,9 @@ Global
 		{55B33880-09D3-4614-9646-C06CE8F0FA2A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{55B33880-09D3-4614-9646-C06CE8F0FA2A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{55B33880-09D3-4614-9646-C06CE8F0FA2A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E0581A8D-3AD0-44A2-9A97-560022B6B5CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E0581A8D-3AD0-44A2-9A97-560022B6B5CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E0581A8D-3AD0-44A2-9A97-560022B6B5CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E0581A8D-3AD0-44A2-9A97-560022B6B5CC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using Microsoft.Extensions.Hosting;
 
 namespace MediatRExperiments
@@ -11,7 +12,9 @@ namespace MediatRExperiments
                 .ConfigureApp()
                 .Build();
 
-            await host.RunAsync();
+            await host.StartAsync();
+//            await host.RunAsync();
+            Console.WriteLine("after start async");
         }
     }
 }
