@@ -61,10 +61,9 @@ namespace Tests
 
             await WaitUntilConditionMetOrTimedOut(() => inMemoryStorage.Count == 1);
             
-            Assert.Equal(1, inMemoryStorage.Count);
-            
             await host.StopAsync();
-
+            
+            Assert.Equal(1, inMemoryStorage.Count);
         }
         
         private async Task WaitUntilConditionMetOrTimedOut(Func<bool> conditionMet)

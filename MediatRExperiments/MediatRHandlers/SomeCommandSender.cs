@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 using MediatR;
 using MediatRExperiments.Commands;
 
-namespace MediatRExperiments.Handlers
+namespace MediatRExperiments.MediatRHandlers
 {
     public class SomeCommandSender
     {

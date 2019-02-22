@@ -2,7 +2,7 @@ using System;
 using System.Linq;
 using MediatR;
 using MediatRExperiments.Events;
-using MediatRExperiments.Handlers;
+using MediatRExperiments.MediatRHandlers;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 

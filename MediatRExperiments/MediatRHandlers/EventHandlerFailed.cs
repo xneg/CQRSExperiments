@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 using MediatR;
 using MediatRExperiments.Events;
 
-namespace MediatRExperiments.Handlers
+namespace MediatRExperiments.MediatRHandlers
 {
     public class EventHandlerFailed : INotificationHandler<AfterSomeCommandFinishedEvent>
     {

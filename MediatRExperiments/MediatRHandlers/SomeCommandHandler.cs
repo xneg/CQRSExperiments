@@ -4,7 +4,7 @@ using MediatR;
 using MediatRExperiments.Commands;
 using MediatRExperiments.Events;
 
-namespace MediatRExperiments.Handlers
+namespace MediatRExperiments.MediatRHandlers
 { 
     public class SomeCommandHandler : IRequestHandler<SomeCommand, SomeCommandResult>
     {

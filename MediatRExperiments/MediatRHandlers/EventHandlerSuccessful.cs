@@ -1,10 +1,9 @@
-using System;
 using System.Threading;
 using System.Threading.Tasks;
 using MediatR;
 using MediatRExperiments.Events;
 
-namespace MediatRExperiments.Handlers
+namespace MediatRExperiments.MediatRHandlers
 {
     public class EventHandlerSuccessful : INotificationHandler<AfterSomeCommandFinishedEvent>
     {
