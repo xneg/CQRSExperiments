@@ -12,4 +12,8 @@
       <PackageReference Include="Microsoft.Extensions.Hosting" Version="3.0.0-preview.19074.2" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="Extensions" />
+    </ItemGroup>
+
 </Project>

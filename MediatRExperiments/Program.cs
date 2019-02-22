@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Threading.Tasks;
+using MediatRExperiments.Extensions;
 using Microsoft.Extensions.Hosting;
 
 namespace MediatRExperiments
