@@ -1,10 +1,13 @@
-using System;
 using System.Linq;
+using System.Threading.Tasks;
+using MassTransit;
 using MediatR;
 using MediatRExperiments.Events;
+using MediatRExperiments.MassTransitHandlers;
 using MediatRExperiments.MediatRHandlers;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using IHost = Microsoft.Extensions.Hosting.IHost;
 
 namespace MediatRExperiments.Extensions
 {
@@ -43,6 +46,21 @@ namespace MediatRExperiments.Extensions
         {
             return host.Services.GetService<InMemoryStorage>();
         }
+
+        public static IHostBuilder WithMassTransitSupport(this IHostBuilder hostBuilder)
+        {
+            return hostBuilder.ConfigureServices(collection =>
+            {
+                var consumerFactory = new DefaultConstructorConsumerFactory();
+                var busFactoryConfiguration = new BusFactoryConfiguration(consumerFactory);
+                collection.AddSingleton(Bus.Factory.CreateUsingInMemory(busFactoryConfiguration.Configure));
+                collection.AddHostedService<MassTransitHostedService>();
+                
+                collection.AddTransient<INotificationHandler<AfterSomeCommandFinishedEvent>, EventHandlerWithMassTransitSender>();
+                collection.AddTransient<MassTransitSender>();
+                collection.AddTransient<MassTransitStableConsumer>();
+            });
+        }
         
         private static IHostBuilder WithCommandSender(this IHostBuilder hostBuilder)
         {
@@ -63,6 +81,9 @@ namespace MediatRExperiments.Extensions
             {
                 collection.AddMediatR();
                 var serviceDescriptor = collection.FirstOrDefault(descriptor => descriptor.ImplementationType == typeof(EventHandlerFailed));
+                collection.Remove(serviceDescriptor);
+                serviceDescriptor = collection.FirstOrDefault(descriptor =>
+                    descriptor.ImplementationType == typeof(EventHandlerWithMassTransitSender));
                 collection.Remove(serviceDescriptor);
             });
         }

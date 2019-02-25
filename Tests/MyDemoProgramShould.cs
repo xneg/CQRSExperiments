@@ -65,6 +65,23 @@ namespace Tests
             
             Assert.Equal(1, inMemoryStorage.Count);
         }
+
+        [Fact]
+        public async Task X()
+        {
+            var host = new HostBuilder()
+                .ConfigureApp()
+                .WithMassTransitSupport()
+                .Build();
+            
+            var commandSender = host.GetCommandSender();
+            
+            await host.StartAsync();
+            
+            await commandSender.SendCommand("test4");
+            
+            await host.StopAsync();
+        }
         
         private async Task WaitUntilConditionMetOrTimedOut(Func<bool> conditionMet)
         {

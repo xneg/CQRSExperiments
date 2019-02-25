@@ -2,7 +2,7 @@ using System.Threading.Tasks;
 using MassTransit;
 using MediatRExperiments.Commands;
 
-namespace MediatRExperiments.MassTransitConsumers
+namespace MediatRExperiments.MassTransitHandlers
 {
     public class MassTransitStableConsumer : IConsumer<MassTransitCommand>
     {
