@@ -16,7 +16,7 @@ namespace MediatRExperiments
 
         public string GetValue(string key)
         {
-            return _keyValueStorage[key];
+            return _keyValueStorage.ContainsKey(key) ? _keyValueStorage[key] : null;
         }
 
         public void Increment()

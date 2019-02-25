@@ -75,12 +75,19 @@ namespace Tests
                 .Build();
             
             var commandSender = host.GetCommandSender();
+            var inMemoryStorage = host.GetInMemoryStorage();
             
             await host.StartAsync();
             
             await commandSender.SendCommand("test4");
+
+            await Task.Delay(5000);
+            
+            await WaitUntilConditionMetOrTimedOut(() => inMemoryStorage.GetValue("masstransit") == "eventReceived");
             
             await host.StopAsync();
+            
+            Assert.Equal("eventReceived", inMemoryStorage.GetValue("masstransit"));
         }
         
         private async Task WaitUntilConditionMetOrTimedOut(Func<bool> conditionMet)
